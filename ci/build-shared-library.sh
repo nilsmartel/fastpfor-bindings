@@ -1,6 +1,7 @@
 cd ./cpp-lib/
 
-mkdir build
+mkdir -p build
+
 cd build
-cmake ..
+cmake cmake -DCMAKE_BUILD_TYPE=Debug ..
 make
