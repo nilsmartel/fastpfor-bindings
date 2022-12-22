@@ -29,10 +29,10 @@ extern "C" void INTEGERCODEC_destroy(const IntegerCODECPtr p) {
 }
 
 extern "C" size_t CODEC_encodeArray(const IntegerCODECPtr codec,
-                                    const uint32_t *in, const size_t length,
-                                    uint32_t *out) {
+                                    const uint32_t *in, size_t length,
+                                    uint32_t *out, size_t outlen) {
 
-  size_t nvalue = 0;
+  size_t nvalue = outlen;
 
   auto icodec = static_cast<FastPForLib::IntegerCODEC *>(codec);
 
@@ -43,10 +43,10 @@ extern "C" size_t CODEC_encodeArray(const IntegerCODECPtr codec,
 
 extern "C" size_t CODEC_decodeArray(const IntegerCODECPtr codec,
                                     const uint32_t *in, const size_t length,
-                                    uint32_t *out) {
+                                    uint32_t *out, size_t outlen) {
   auto icodec = static_cast<FastPForLib::IntegerCODEC *>(codec);
 
-  size_t nvalue = 0;
+  size_t nvalue = outlen;
   icodec->decodeArray(in, length, out, nvalue);
 
   return nvalue;

@@ -16,10 +16,10 @@ IntegerCODECPtr CODECFactory_getFromName(const char *name);
 void INTEGERCODEC_destroy(const IntegerCODECPtr p);
 
 size_t CODEC_encodeArray(const IntegerCODECPtr codec, const uint32_t *in,
-                         const size_t length, uint32_t *out);
+                         size_t length, uint32_t *out, size_t outlen);
 
 size_t CODEC_decodeArray(const IntegerCODECPtr codec, const uint32_t *in,
-                         const size_t length, uint32_t *out);
+                         size_t length, uint32_t *out, size_t outlen);
 
 #ifdef __cplusplus
 }
